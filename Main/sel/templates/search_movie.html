@@ -1,0 +1,106 @@
+<!-- search_movie.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+	<title>Book Tickets</title>
+</head>
+<body>
+	<h1>Search Movie and Book Ticket</h1>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+  <a class="navbar-brand" href="http://127.0.0.1:8000/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:8000/tweet/">Twitter Tweet Scraper</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:8000/movies/">BookMyShow Scrapper</a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:8000/events/">Paytm Scrapper</a>
+      </li>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="http://127.0.0.1:8000/tickets/">Book Movie Ticket</a>
+      </li>
+    </ul>
+  </div>
+<!--</nav>-->
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<form method="POST" >
+		{% csrf_token %}
+		<label for="movie_name">Enter movie name:</label>
+		<input type="text" id="movie_name" name="movie_name" required>
+		<br>
+		 <label for="location">Select Location:</label>
+		  <select id="location" name="location">
+			  <option value="None">Options</option>
+			<option value="hyderabad">Hyderabad</option>
+			<option value="mumbai">Mumbai</option>
+			  <option value="pune">Pune</option>
+			  <option value="delhi">Delhi</option>
+			  <option value="chandigarh">Chandigarh</option>
+			  <option value="bengaluru">Bengaluru</option>
+			  <option value="ahmedabad">Ahmedabad</option>
+			  <option value="chennai">Chennai</option>
+			  <option value="kolkata">Kolkata</option>
+			  <option value="kochi">Kochi</option>
+		  </select>
+		<br>
+		<label for="ticket_no">Enter no of ticket you want if it's available:</label>
+		<input type="Integer" id="ticket_no" name="ticket_no" required>
+		<br>
+		<label for="email_id">Enter your email_id:</label>
+		<input type="text" id="email_id" name="email_id" required>
+		<br>
+		<label for="phone_no">Enter your phone number:-</label>
+		<input type="Integer" id="phone_no" name="phone_no" required>
+		<br>
+<!--		<label for="Upi_app">Enter Upi app with which you will pay for ticket:</label>-->
+<!--		<input type="Text" id="Upi_app" name="Upi_app" required>-->
+		 <label for="Upi_app">Select an UPI option:</label>
+		  <select id="Upi_app" name="Upi_app">
+			  <option value="None">Options</option>
+			<option value="phonepe">Phonepe</option>
+			<option value="paytm">Paytm</option>
+		  </select>
+		<br>
+		<input type="submit" value="Search">
+	</form>
+	{% if messages %}
+		{% for message in messages %}
+			<p>{{ message }}</p>
+		{% endfor %}
+	{% endif %}
+</body>
+</html>
